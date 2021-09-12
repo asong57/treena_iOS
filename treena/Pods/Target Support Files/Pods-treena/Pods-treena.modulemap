@@ -1,0 +1,6 @@
+framework module Pods_treena {
+  umbrella header "Pods-treena-umbrella.h"
+
+  export *
+  module * { export * }
+}

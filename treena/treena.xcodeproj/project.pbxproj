@@ -14,9 +14,12 @@
 		9C9987AD26EB695B008C16D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C9987AC26EB695B008C16D7 /* Assets.xcassets */; };
 		9C9987B026EB695B008C16D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C9987AE26EB695B008C16D7 /* LaunchScreen.storyboard */; };
 		9C9987B826EB6B46008C16D7 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9987B726EB6B46008C16D7 /* Login.swift */; };
+		DBA319E0A7BFBB6E2BC688C0 /* Pods_treena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCF93807984079DF8F1CFC8 /* Pods_treena.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3DCF93807984079DF8F1CFC8 /* Pods_treena.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91A3392BC68C64637EBDA78F /* Pods-treena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-treena.release.xcconfig"; path = "Target Support Files/Pods-treena/Pods-treena.release.xcconfig"; sourceTree = "<group>"; };
 		9C9987A026EB6959008C16D7 /* treena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = treena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9987A326EB6959008C16D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C9987A526EB6959008C16D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		9C9987AF26EB695B008C16D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C9987B126EB695B008C16D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C9987B726EB6B46008C16D7 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		AC657069338B55FC20924757 /* Pods-treena.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-treena.debug.xcconfig"; path = "Target Support Files/Pods-treena/Pods-treena.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA319E0A7BFBB6E2BC688C0 /* Pods_treena.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				9C9987A226EB6959008C16D7 /* treena */,
 				9C9987A126EB6959008C16D7 /* Products */,
+				ED1F609C2C41DA1BB80DDB0A /* Pods */,
+				C7D9B8C26B01E41ED61C6F25 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +77,24 @@
 			path = treena;
 			sourceTree = "<group>";
 		};
+		C7D9B8C26B01E41ED61C6F25 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCF93807984079DF8F1CFC8 /* Pods_treena.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED1F609C2C41DA1BB80DDB0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC657069338B55FC20924757 /* Pods-treena.debug.xcconfig */,
+				91A3392BC68C64637EBDA78F /* Pods-treena.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C9987B426EB695B008C16D7 /* Build configuration list for PBXNativeTarget "treena" */;
 			buildPhases = (
+				241AF83C5AD5EB1C420B4C1B /* [CP] Check Pods Manifest.lock */,
 				9C99879C26EB6959008C16D7 /* Sources */,
 				9C99879D26EB6959008C16D7 /* Frameworks */,
 				9C99879E26EB6959008C16D7 /* Resources */,
+				B93F420CA234B86E15FCD151 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,6 +161,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		241AF83C5AD5EB1C420B4C1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-treena-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B93F420CA234B86E15FCD151 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-treena/Pods-treena-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-treena/Pods-treena-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-treena/Pods-treena-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C99879C26EB6959008C16D7 /* Sources */ = {
@@ -287,6 +356,7 @@
 		};
 		9C9987B526EB695B008C16D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC657069338B55FC20924757 /* Pods-treena.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -305,6 +375,7 @@
 		};
 		9C9987B626EB695B008C16D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91A3392BC68C64637EBDA78F /* Pods-treena.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
