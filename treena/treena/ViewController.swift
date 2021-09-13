@@ -13,7 +13,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func mypageButtonClicked(_ sender: Any) {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "MyPageVC") as? MyPageViewController else {return}
+      
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @IBAction func plusButtonClicked(_ sender: Any) {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "PlusVC") as? PlusViewController else {return}
+      
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 
+    @IBAction func calendarButtonClicked(_ sender: Any) {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "CalendarVC") as? CalendarViewController else {return}
+      
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 
 }
 

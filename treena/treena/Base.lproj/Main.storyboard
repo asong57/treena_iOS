@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="120.28985507246378" y="97.767857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--My Page View Controller-->
         <scene sceneID="C1j-wI-G3d">
             <objects>
-                <viewController id="ahu-51-WE1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageVC" id="ahu-51-WE1" customClass="MyPageViewController" customModule="treena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e0K-Lu-hxS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,6 +127,9 @@
                                 <rect key="frame" x="328" y="787" width="50" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="plus"/>
+                                <connections>
+                                    <action selector="plusButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bTt-5O-BzN"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fKX-5h-Ppo">
                                 <rect key="frame" x="37" y="194" width="341" height="545"/>
@@ -136,11 +139,17 @@
                                 <rect key="frame" x="37" y="782" width="61" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="calendar"/>
+                                <connections>
+                                    <action selector="calendarButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VbE-Zi-ute"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRt-zQ-Zyv">
                                 <rect key="frame" x="285" y="84" width="129" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="profile"/>
+                                <connections>
+                                    <action selector="mypageButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WJv-Y5-vky"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -152,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="93.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Plus View Controller-->
         <scene sceneID="fmF-zz-grn">
             <objects>
-                <viewController id="20v-jr-TeH" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlusVC" id="20v-jr-TeH" customClass="PlusViewController" customModule="treena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dX3-6I-Opk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,10 +229,10 @@
             </objects>
             <point key="canvasLocation" x="139.13043478260872" y="855.80357142857144"/>
         </scene>
-        <!--View Controller-->
+        <!--Calendar View Controller-->
         <scene sceneID="58b-r8-N1h">
             <objects>
-                <viewController id="PGU-mQ-AXh" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarVC" id="PGU-mQ-AXh" customClass="CalendarViewController" customModule="treena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="27P-Jh-OZi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
