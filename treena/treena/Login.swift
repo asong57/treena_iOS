@@ -23,6 +23,9 @@ class LoginViewController : UIViewController{
         
         if let user = Auth.auth().currentUser {
             loginLabel.text = "이미 로그인 된 상태입니다."
+            guard let nextVC = self.storyboard?.instantiateViewController(identifier: "HomeVC") as? ViewController else {return}
+          
+            self.navigationController?.pushViewController(nextVC, animated: true) 
         }
     }
     
@@ -42,6 +45,12 @@ class LoginViewController : UIViewController{
         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "HomeVC") as? ViewController else {return}
       
         self.navigationController?.pushViewController(nextVC, animated: true) }
-
-   
+    
+    // 회원가입 버튼 클릭 이벤트
+    // 회원가입 화면으로 이동
+    @IBAction func registerMoveButtonClick(_ sender: Any) {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "RegisterVC") as? RegisterViewController else {return}
+      
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
