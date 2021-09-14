@@ -6,6 +6,7 @@ target 'treena' do
   use_frameworks!
  pod 'Firebase/Auth'
  pod 'Firebase/Analytics'
+pod 'Firebase/Database'
   # Pods for treena
 
 end
