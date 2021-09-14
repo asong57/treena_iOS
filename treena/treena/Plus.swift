@@ -8,18 +8,28 @@
 import Foundation
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class PlusViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet var diaryTextView: UITextView!
     
     var ref: DatabaseReference!
+    var uid: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Firebase Database 연결
         ref = Database.database().reference()
+        
+        if Auth.auth().currentUser != nil {
+            let user = Auth.auth().currentUser
+            uid = user?.uid
+            print("user exists : \(uid)")
+        } else{
+            print("user is nil")
+        }
         
         // placeholder 세팅
         placeholderSetting()
@@ -56,7 +66,7 @@ class PlusViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func saveButtonClicked(_ sender: Any) {
         let value: [String: Any] = [ "todaydate" : diaryTextView.text]
-        self.ref.child("diary").child("uid").setValue(value)
+        self.ref.child("diary").child(uid).setValue(value)
         print("save success")
     }
 }
