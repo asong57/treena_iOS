@@ -37,14 +37,15 @@ class LoginViewController : UIViewController{
             (user, error) in
             if user != nil{
                 print("login success")
+                guard let nextVC = self.storyboard?.instantiateViewController(identifier: "HomeVC") as? ViewController else {return}
+                
+                self.navigationController?.pushViewController(nextVC, animated: true) 
             }else{
                 print("login failed")
             }
         }
         
-        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "HomeVC") as? ViewController else {return}
-      
-        self.navigationController?.pushViewController(nextVC, animated: true) }
+       }
     
     // 회원가입 버튼 클릭 이벤트
     // 회원가입 화면으로 이동
