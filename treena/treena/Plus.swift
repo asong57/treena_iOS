@@ -13,6 +13,7 @@ import FirebaseAuth
 class PlusViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet var diaryTextView: UITextView!
+    @IBOutlet var dateLabel: UILabel!
     
     var ref: DatabaseReference!
     var uid: String!
@@ -30,6 +31,13 @@ class PlusViewController: UIViewController, UITextViewDelegate {
         } else{
             print("user is nil")
         }
+        
+        // 오늘 날짜 세팅
+        let today = Date() //현재 시각 구하기
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy년 M월 d일"
+        var dateString = dateFormatter.string(from: today)
+        self.dateLabel.text = dateString
         
         // placeholder 세팅
         placeholderSetting()
@@ -65,7 +73,13 @@ class PlusViewController: UIViewController, UITextViewDelegate {
        }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-        let value: [String: Any] = [ "todaydate" : diaryTextView.text]
+        let today = Date() //현재 시각 구하기
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        var dateString = dateFormatter.string(from: today)
+        
+        let value: [String: Any] = [dateString : diaryTextView.text]
+        
         self.ref.child("diary").child(uid).setValue(value)
         print("save success")
     }
