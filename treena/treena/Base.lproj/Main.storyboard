@@ -101,6 +101,9 @@
                                 <state key="normal" title="탈퇴">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteUserClicked:" destination="ahu-51-WE1" eventType="touchUpInside" id="PmY-s0-K2K"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB1-kX-r9I">
                                 <rect key="frame" x="181" y="317" width="52" height="30"/>
@@ -117,9 +120,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="deleteUserButton" destination="rql-Pp-xS5" id="KaO-F6-oWR"/>
                         <outlet property="logoutButton" destination="WB1-kX-r9I" id="7ex-VO-c2l"/>
                         <outlet property="resetPasswordButton" destination="n1J-6M-tIp" id="CEQ-AE-R3h"/>
-                        <outlet property="withdrawlButton" destination="rql-Pp-xS5" id="ja7-Gg-3XU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HYk-SA-xmp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
