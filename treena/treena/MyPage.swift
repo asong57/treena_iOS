@@ -12,8 +12,17 @@ import FirebaseAuth
 class MyPageViewController: UIViewController {
     
     @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var findPasswordButton: UIButton!
+    @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var withdrawlButton: UIButton!
+    
+    var user: User!
+    var userEmail: String!
+    
+    override func viewDidLoad() {
+        self.user = Auth.auth().currentUser
+        self.userEmail = user.email
+        
+    }
     
     @IBAction func logoutClicked(_ sender: Any) {
         do {
@@ -26,5 +35,15 @@ class MyPageViewController: UIViewController {
             print ("Error signing out: %@", signOutError)
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func resetPasswordClicked(_ sender: Any) {
+        Auth.auth().sendPasswordReset(withEmail: userEmail) { (error) in
+            if error != nil {
+                print("failed email sending")
+            } else {
+                print("successed email sending")
+            }
+        }
     }
 }

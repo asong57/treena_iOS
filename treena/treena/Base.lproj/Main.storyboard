@@ -91,6 +91,9 @@
                                 <state key="normal" title="비밀번호찾기">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetPasswordClicked:" destination="ahu-51-WE1" eventType="touchUpInside" id="ulb-UH-CYP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rql-Pp-xS5">
                                 <rect key="frame" x="195" y="525" width="30" height="30"/>
@@ -114,8 +117,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="findPasswordButton" destination="n1J-6M-tIp" id="uyR-Mi-nuv"/>
                         <outlet property="logoutButton" destination="WB1-kX-r9I" id="7ex-VO-c2l"/>
+                        <outlet property="resetPasswordButton" destination="n1J-6M-tIp" id="CEQ-AE-R3h"/>
                         <outlet property="withdrawlButton" destination="rql-Pp-xS5" id="ja7-Gg-3XU"/>
                     </connections>
                 </viewController>
