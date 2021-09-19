@@ -7,6 +7,7 @@ target 'treena' do
  pod 'Firebase/Auth'
  pod 'Firebase/Analytics'
 pod 'Firebase/Database'
+pod 'FSCalendar'
   # Pods for treena
 
 end
