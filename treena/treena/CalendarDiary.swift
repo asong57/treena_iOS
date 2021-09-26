@@ -46,10 +46,23 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
         
         // placeholder 세팅
         placeholderSetting()
-        
+                
         // textView 테두리 선 주기
         self.diaryTextView.layer.borderWidth = 1.0
         self.diaryTextView.layer.borderColor = UIColor.black.cgColor
+        
+        // 데이터 읽어오기
+        self.ref.child("diary").child(uid).child(date).getData{ (error, snapshot) in
+            if let error = error {
+                print("error getting data \(error)")
+            }else if snapshot.exists() {
+                self.diaryTextView.textColor = UIColor.black
+                self.diaryTextView.text = snapshot.value as! String
+                print("got data \(snapshot.value!)")
+            }else {
+                print("No data")
+            }
+        }
     }
     
     func placeholderSetting() {
