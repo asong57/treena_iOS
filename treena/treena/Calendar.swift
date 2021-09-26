@@ -24,9 +24,6 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
         view.addSubview(calendar)
     }
     
-    
-
-    
     // 달력 날짜 아래에 이미지 셋
     // FSCalendarDataSource
     func calendar(_ calendar: FSCalendar!, imageFor date: NSDate!) -> UIImage! {
@@ -45,7 +42,7 @@ extension CalendarViewController {
         
         // 날짜를 원하는 형식으로 저장하기 위한 방법입니다.
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyyMMdd"
         nextVC.date = dateFormatter.string(from: date)
         
         self.navigationController?.pushViewController(nextVC, animated: true)
