@@ -72,15 +72,25 @@ class PlusViewController: UIViewController, UITextViewDelegate {
            }
        }
     
+    // 일기 저장
     @IBAction func saveButtonClicked(_ sender: Any) {
         let today = Date() //현재 시각 구하기
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd"
         var dateString = dateFormatter.string(from: today)
         
-        let value: [String: Any] = [dateString : diaryTextView.text]
+        self.ref.child("diary").child(uid).child(dateString).setValue(diaryTextView.text)
+        print("save success")
+    }
+    
+    // 임시 저장
+    @IBAction func temporaySaveButtonClicked(_ sender: Any) {
+        let today = Date() //현재 시각 구하기
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        var dateString = dateFormatter.string(from: today)
         
-        self.ref.child("diary").child(uid).setValue(value)
+        self.ref.child("diary").child(uid).child(dateString).setValue(diaryTextView.text)
         print("save success")
     }
 }

@@ -200,6 +200,9 @@
                                 <rect key="frame" x="47" y="760" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="임시저장"/>
+                                <connections>
+                                    <action selector="temporaySaveButtonClicked:" destination="20v-jr-TeH" eventType="touchUpInside" id="PzL-Q6-mkP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFz-EN-JVn">
                                 <rect key="frame" x="345" y="760" width="30" height="30"/>
@@ -351,11 +354,17 @@
                                 <rect key="frame" x="186" y="793" width="52" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="임시저장"/>
+                                <connections>
+                                    <action selector="temporaySaveButtonClicked:" destination="26V-l8-eNP" eventType="touchUpInside" id="4AG-RK-r9g"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpJ-lD-KsZ">
                                 <rect key="frame" x="333" y="793" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="저장"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="26V-l8-eNP" eventType="touchUpInside" id="FvU-tb-yd3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="saL-Me-H2F">
                                 <rect key="frame" x="78" y="187" width="259" height="21"/>

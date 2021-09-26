@@ -79,14 +79,13 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
     
     // 다이어리 내용 저장 
     @IBAction func saveButtonClicked(_ sender: Any) {
-        let today = Date() //현재 시각 구하기
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        var dateString = dateFormatter.string(from: today)
-        
-        let value: [String: Any] = [date : diaryTextView.text]
-        
-        self.ref.child("diary").child(uid).setValue(value)
+        self.ref.child("diary").child(uid).child(date).setValue(diaryTextView.text)
+        print("save success")
+    }
+    
+    // 임시저장 
+    @IBAction func temporaySaveButtonClicked(_ sender: Any) {
+        self.ref.child("diary").child(uid).child(date).setValue(diaryTextView.text)
         print("save success")
     }
 }
