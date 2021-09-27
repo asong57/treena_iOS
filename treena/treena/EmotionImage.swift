@@ -10,4 +10,12 @@ import UIKit
 
 class EmotionImageViewController: UIViewController {
     
+    var emotion: String!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("EmotionImage emotion : "+emotion)
+    }
+    
+    
 }

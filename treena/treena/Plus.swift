@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import Alamofire
 
 class PlusViewController: UIViewController, UITextViewDelegate {
     
@@ -81,6 +82,9 @@ class PlusViewController: UIViewController, UITextViewDelegate {
         
         self.ref.child("diary").child(uid).child(dateString).setValue(diaryTextView.text)
         print("save success")
+        
+        // 모델과 연결
+        postTest()
     }
     
     // 임시 저장
@@ -93,4 +97,50 @@ class PlusViewController: UIViewController, UITextViewDelegate {
         self.ref.child("diary").child(uid).child(dateString).setValue(diaryTextView.text)
         print("save success")
     }
+    
+    func postTest() {
+            let url = ""
+            var request = URLRequest(url: URL(string: url)!)
+            request.httpMethod = "POST"
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.timeoutInterval = 10
+            
+            // POST 로 보낼 정보
+        let params = ["context":diaryTextView.text] as Dictionary
+
+            // httpBody 에 parameters 추가
+            do {
+                try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+            } catch {
+                print("http Body Error")
+            }
+            
+        // 인공지능 모델 API 통신 요청
+            AF.request(request).responseJSON { (response) in
+                switch response.result {
+                case .success(let res):
+                    print("POST 성공")
+                    print(res)
+                    
+                    do{
+                        var emotion: String = ""
+                    
+                        // response JSON 파싱
+                        let data = try? JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
+                        emotion = try! JSONDecoder().decode(APIResponse.self, from: data!).answer
+                        
+                        // 모델에서 얻어온 감정 다음 화면으로 전달
+                        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "ImageVC") as? EmotionImageViewController else {return}
+                        nextVC.emotion = emotion
+                        self.navigationController?.pushViewController(nextVC, animated: true)
+                        
+                    } catch(let err) {
+                        print(err.localizedDescription)
+                    }
+                    
+                case .failure(let error):
+                    print("🚫 Alamofire Request Error\nCode:\(error._code), Message: \(error.errorDescription!)")
+                }
+            }
+        }
 }

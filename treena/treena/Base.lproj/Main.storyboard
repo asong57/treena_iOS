@@ -327,7 +327,7 @@
         <!--Emotion Image View Controller-->
         <scene sceneID="Cah-wr-Khm">
             <objects>
-                <viewController storyboardIdentifier="ImageVO" id="c5h-Bi-Dd0" customClass="EmotionImageViewController" customModule="treena" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImageVC" id="c5h-Bi-Dd0" customClass="EmotionImageViewController" customModule="treena" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rh2-oZ-42Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
