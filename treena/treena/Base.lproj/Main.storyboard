@@ -324,6 +324,21 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="829.6875"/>
         </scene>
+        <!--Emotion Image View Controller-->
+        <scene sceneID="Cah-wr-Khm">
+            <objects>
+                <viewController storyboardIdentifier="ImageVO" id="c5h-Bi-Dd0" customClass="EmotionImageViewController" customModule="treena" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rh2-oZ-42Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XSL-mc-ooT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="moY-i9-M7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2204" y="1011"/>
+        </scene>
         <!--Calendar Diary View Controller-->
         <scene sceneID="i8r-Y5-ArL">
             <objects>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C7BBA7F26F8515C005FC1BA /* CalendarDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7BBA7E26F8515C005FC1BA /* CalendarDiary.swift */; };
+		9C7CD3C82701503D00D355BE /* EmotionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7CD3C72701503D00D355BE /* EmotionImage.swift */; };
 		9C9987A426EB6959008C16D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9987A326EB6959008C16D7 /* AppDelegate.swift */; };
 		9C9987A626EB6959008C16D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9987A526EB6959008C16D7 /* SceneDelegate.swift */; };
 		9C9987A826EB6959008C16D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9987A726EB6959008C16D7 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		3DCF93807984079DF8F1CFC8 /* Pods_treena.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_treena.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91A3392BC68C64637EBDA78F /* Pods-treena.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-treena.release.xcconfig"; path = "Target Support Files/Pods-treena/Pods-treena.release.xcconfig"; sourceTree = "<group>"; };
 		9C7BBA7E26F8515C005FC1BA /* CalendarDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDiary.swift; sourceTree = "<group>"; };
+		9C7CD3C72701503D00D355BE /* EmotionImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionImage.swift; sourceTree = "<group>"; };
 		9C9987A026EB6959008C16D7 /* treena.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = treena.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C9987A326EB6959008C16D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C9987A526EB6959008C16D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				9CCC794B26EF435E006D0169 /* MyPage.swift */,
 				9CCC794D26EF4367006D0169 /* Calendar.swift */,
 				9C9987A926EB6959008C16D7 /* Main.storyboard */,
+				9C7CD3C72701503D00D355BE /* EmotionImage.swift */,
 				9C7BBA7E26F8515C005FC1BA /* CalendarDiary.swift */,
 				9CCC794926EF3E0B006D0169 /* Register.swift */,
 				9CCC795126EF43CB006D0169 /* Plus.swift */,
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C9987A826EB6959008C16D7 /* ViewController.swift in Sources */,
+				9C7CD3C82701503D00D355BE /* EmotionImage.swift in Sources */,
 				9CCC795226EF43CB006D0169 /* Plus.swift in Sources */,
 				9C7BBA7F26F8515C005FC1BA /* CalendarDiary.swift in Sources */,
 				9C9987A426EB6959008C16D7 /* AppDelegate.swift in Sources */,

@@ -8,6 +8,8 @@ target 'treena' do
  pod 'Firebase/Analytics'
 pod 'Firebase/Database'
 pod 'FSCalendar'
+pod 'Alamofire', '~> 5.4'
+
   # Pods for treena
 
 end
