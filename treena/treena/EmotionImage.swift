@@ -20,6 +20,8 @@ class EmotionImageViewController: UIViewController {
     var diaryUsage: UInt!
     var emotionResults: EmotionResult!
     var treeLevel: Int!
+    var type: Int!
+    var id: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,7 @@ class EmotionImageViewController: UIViewController {
         }
         parseEmotionResult()
         checkDiaryUsage()
-        setEmotionImage()
+        setEmotionType()
     }
     
     // EmotionResult.json 파싱
@@ -50,15 +52,26 @@ class EmotionImageViewController: UIViewController {
         
         do {
             self.emotionResults = try jsonDecoder.decode(EmotionResult.self, from: emotionData.data)
-            print(emotionResults.emotions[0].response[1])
         } catch {
             print(String(describing: error))
-            print(error.localizedDescription)
         }
         
     }
     
-    // 데이터베이스 사용자 일기량 확인
+    // 감정 타입 세팅
+    func setEmotionType(){
+        for i in 0..<emotionResults.emotions.capacity {
+            if emotion == emotionResults.emotions[i].name {
+                id = i
+                type = emotionResults.emotions[i].type
+                print("response : \(emotionResults.emotions[i].response[0])")
+                print("type : \(type)")
+                break
+            }
+        }
+    }
+    
+    // 데이터베이스 사용자 일기량 확인 및 setTreeLevel()
     func checkDiaryUsage(){
         self.ref.child("diary").child(uid).getData{ (error, snapshot) in
             if let error = error {
@@ -66,10 +79,43 @@ class EmotionImageViewController: UIViewController {
             }else if snapshot.exists() {
                 self.diaryUsage = snapshot.childrenCount
                 print("got data \(self.diaryUsage)")
+                self.setTreeLevel()
             }else {
                 print("No data")
             }
         }
+    }
+    
+    // treeLevel 세팅
+    func setTreeLevel(){
+        if (diaryUsage <= 2 && diaryUsage >= 0) {
+            treeLevel=0;
+        }
+        if (diaryUsage > 2 && diaryUsage <= 7) {
+            treeLevel = 1;
+        }
+        if (diaryUsage > 7 && diaryUsage <= 14) {
+            treeLevel = 2;
+        }
+        if (diaryUsage > 14 && diaryUsage <= 21) {
+            treeLevel = 3;
+        }
+        if (diaryUsage > 21 && diaryUsage <= 28) {
+            treeLevel = 4;
+        }
+        if (diaryUsage > 28 && diaryUsage <= 35) {
+            treeLevel =  5;
+        }
+        if (diaryUsage > 35 && diaryUsage <= 42) {
+            treeLevel = 6;
+        }
+        if (diaryUsage > 42 && diaryUsage <= 49) {
+            treeLevel = 7;
+        }
+        if (diaryUsage > 49 && diaryUsage <= 56) {
+            treeLevel = 8;
+        }
+        self.setEmotionImage()
     }
     
     // 감정에 맞는 이미지 셋팅
@@ -83,8 +129,16 @@ class EmotionImageViewController: UIViewController {
                                          ["https://postfiles.pstatic.net/MjAyMTA3MzBfMjM4/MDAxNjI3NTcxNTk1MDI1.j_cPdxMpLCna7L7iBrndSUgJmB-kafmGndINdGi89dwg.5q1LywdZQ7PTribz3wI1s6dZwHezq_XihIN6aY-inZgg.JPEG.hahahafb/back1.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfNTYg/MDAxNjI3NTcxNTk1MTM4.1K7VsEV6NS9LvV25boXPaL-Q3gsZnnhLG2T44cvA6Rog.5j7lLyq1vZY52ZTBxq5zysxkCDSwUz20sokqoKccMKEg.JPEG.hahahafb/back2.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfNDIg/MDAxNjI3NTcxNTk1MDg0.muLO1AgX8ifGgukZZ2HhpahFFCMKWEqkUAskk7LyUCYg.K8yphT5J8L10P_Wb5U2qSPnqZX9FvbJkfcQKgISRBb8g.JPEG.hahahafb/back3.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMjQ2/MDAxNjI3NTcxNTk1MTEw.DBJ20Gby0KviDlTNwwa-IxL3ur1lSvlPUeRp73DG200g.FjyVQxBhHUHmKosRqri241_BdD2j8DRU78oTHA1pOx8g.JPEG.hahahafb/back4.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMjgz/MDAxNjI3NTcxNTk1MTMw.VJ956d5Pxf3IJS9Uvs8YM0Y0fbClvKUsTSepEJOEWRgg.Bd-TFNvUNgfTg52fHis0IbOK4UAzvVruelLkKszvVaYg.JPEG.hahahafb/back5.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMTQ2/MDAxNjI3NTcxNTk1MTQy.Zzuj-zXQlMIKbs9t8Lb28kIGmmgGA_lz9Xyr7O-IcF8g.Cygvst0mUL5IJAMeJ7tXsK1wgAt5JaF7-4oQlcB4iMYg.JPEG.hahahafb/back6.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMjM5/MDAxNjI3NTcxNTk1NDE4.qxgyvt4_xId8vqvt7K5zSMZ-2plIyoZncyYllyDP5h0g.cr8ooVfhrOggkv6Uy0hcgJXM8kEJdHSdfs6iKqA7qwcg.JPEG.hahahafb/back7.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMjQ5/MDAxNjI3NTcxNTk1NDg3.CllEMGuGVwUHt9GINyrpsndc03cHksLcL4T_RQz2nsQg._yO2AU6ZCTj_3hml1QYKqfWi4VVKtuXI40ibHt4iBxwg.JPEG.hahahafb/back8.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMTAy/MDAxNjI3NTcxNTk1NTMy.BxQLDJRx7J6gInjylfcCt92hjWduZyQF0NJV5XmHqJsg.QBMTzbEbR3a8-hXxXEI5stocjR838Fqktd-F2Pw34rog.JPEG.hahahafb/back9.jpg?type=w966"],
                                          ["https://postfiles.pstatic.net/MjAyMTA3MzBfMjIw/MDAxNjI3NTcxNDg0MzAz.WVfCnnI6UPKSbpWDJMl8Evblz0w9LpcS1YqaCEF4omUg.Mn2AzXj_54A_GmEdehcM0V8IAQA4v5BzbYimoGc7VU0g.JPEG.hahahafb/water1.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMjU1/MDAxNjI3NTcxNDg0MzY2.aJjahQlHICwJQAAlrj_CHQs2A5YDd_cml-YXnPAQ3BIg.SIg_dZrLJMkumNPNizRenAX07XeQmZiy0FGzRxhH_zYg.JPEG.hahahafb/water2.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMTI0/MDAxNjI3NTcxNDg0Mzk2.wsk6iF5tCSd8G1giAYxgA_ftcuFpPTPg-Fq0HvE5xZMg.qu_H8hmizKClwAPqQIXDx4WnP7XZW4TRlLrFb7ZDrc0g.JPEG.hahahafb/water3.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMjIy/MDAxNjI3NTcxNDg0NDI5.bi7C9SYh2wyLf3DhcHRVJCgWdZA35tpUCov8jBgGe1kg.x1dIDyGPMeUjKxarDw_7zEWu76WGk2Wi_wvxV40n8fIg.JPEG.hahahafb/water4.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMzgg/MDAxNjI3NTcxNDg0NDA2.RW5b_LBffABU-LUlwfH9acgn61gSToBpGW9H4DVWKDYg.C1DiQmYqjH3Hl7I3ygNuFeeGZH41NQKrXnisHZZfgTAg.JPEG.hahahafb/water5.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMjcw/MDAxNjI3NTcxNDg0NDI0.TwhdEhuxC0MWFvtC_rgoMeLdG2Wokj-lKRPnH1Ys390g.hq5xvrlll8BaaLsD-Tfp_vR2rAJ2w0mtrQskpRh53kgg.JPEG.hahahafb/water6.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMjA1/MDAxNjI3NTcxNDg0NzMy.1iSdhB-igYqEQRD-c1ioKjQk5B-Ag34vyRsjN9f6j6Qg.oa3xTW9I5SjsRcLJSvJHw9r1Z_xWFyJsmc4Wx-sSVF8g.JPEG.hahahafb/water7.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMTY4/MDAxNjI3NTcxNDg0ODQ1.DGR-9LTPgR_xeBx5V5HvpBTdcFJ9rmLsZ98qt9N5V_4g.MM-Mi84l-q2BlyltcoDFVdDUXgrX7S1q4j8qcpZ0Rj4g.JPEG.hahahafb/water8.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MzBfMTE1/MDAxNjI3NTcxNDg0OTIw.3Da2QTE0cUxnXw8MFOeVqfeij2q4szvw13VY80wXrUIg.37I-2kDjbSmGjOJKUeknq2D3DqvHUwADJRXJRtRdKW4g.JPEG.hahahafb/water9.jpg?type=w966"],
                                          ["https://postfiles.pstatic.net/MjAyMTA3MjlfMTM0/MDAxNjI3NTY5NTgzMzM1.N1rBudltVY-kUPF16sbEeMtM-OMA2Yu2AGEoGrhcDAQg.zND4wWN-NdRpDc52t8SQTMeChA2dsduYQB3lNpzUHQEg.JPEG.hahahafb/rainny1.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MjlfMjg1/MDAxNjI3NTY5NTgzNDY0.OyjJ8UiJ-hZzNmY9RNMdGahEoWt4wjRtqjrfXFtxgPQg.4bF8C5fs5iESAZK9zDX0xtIexGOPezAhprRmLXYo1WAg.JPEG.hahahafb/rainny2.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MjlfMTAx/MDAxNjI3NTY5NTgzNDQ4.UUS5pmg-ZBV-pP13n7pQXFVmawVZtT0Qi_GkG0btDzog.dfuyUJkWGDgnmvF5zCpjwzZgqLgNueR8OXb1gIFeyiMg.JPEG.hahahafb/rainny3.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MjlfMjky/MDAxNjI3NTY5NTgzMzk3.bjeuZ_yRQCRhtYWrVfB8P2aTtHnX4lqc3iCnBZnPM9Mg.Yr4XjYjG691K4CH7zpgpc9La_OfJq8jS3aGVWMT6Tqkg.JPEG.hahahafb/rainny4.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MjlfOTUg/MDAxNjI3NTcwNTM3NzUz.v7Pd36DojPk4QMjQzi8xxFhB3P__9jlgC7W6TFWL0Yog.qwPM9oDCVsKU7l7oOPXlPR3wSBTaM18NlDkTKIocwA4g.JPEG.hahahafb/rainny5.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MjlfMTY4/MDAxNjI3NTY5NTgzNDI4.HnN3Wll8fE58yGmZ3S5Jr37rbM5779kvt27M6EmY4dYg.6qdKZ8GWVKE80KpgdCeiUxmxhDkjfgw31Ce-_OFioUQg.JPEG.hahahafb/rainny6.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MjlfMjAg/MDAxNjI3NTY5NTgzNjc1.8h5cOlIjQJD7-9uLh1YfD8eJ-JewSsaUwnynFGSb9pIg.d3i5peSlL1LfoRYAxK1VHotOstZsmd2tq31oDfsaqS4g.JPEG.hahahafb/rainny7.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MjlfMjIg/MDAxNjI3NTY5NTgzODI4.X5XcwM-Gc4T3LS-0j866NRXLNre7tnQIdCX0dUmaS_8g.PEklfFGQeNYNW1WgWcHJhDe0pSQZk-cbKwR3t-eCAlog.JPEG.hahahafb/rainny8.jpg?type=w966","https://postfiles.pstatic.net/MjAyMTA3MjlfNjQg/MDAxNjI3NTY5NTgzOTE5.-D-zuZeRBwC4MyH38C9D8ZDIrqMcz4V78fdRI1vueTUg.nxVJTRFQ8r8fjMVfIcEc-9uKF07Qsy7S4OG977WGS8og.JPEG.hahahafb/rainny9.jpg?type=w966"]];
-
-        let url = URL(string: imageUrlList[1][1])
+        var index: Int = 0
+        if type == 1 {
+            index = 1
+        } else if type == 0 {
+            index = 3
+        } else if type == -1 {
+            index = 5
+        }
+        
+        let url = URL(string: imageUrlList[index][treeLevel])
         do {
             let data = try Data(contentsOf: url!)
             imageView.image = UIImage(data: data)
