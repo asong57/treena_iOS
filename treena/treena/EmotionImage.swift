@@ -7,18 +7,69 @@
 
 import Foundation
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class EmotionImageViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
     var emotion: String!
+    var ref: DatabaseReference!
+    var uid: String!
+    var diaryUsage: UInt!
+    var emotionResults: EmotionResult!
+    var treeLevel: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("EmotionImage emotion : "+emotion)
         
+        // Firebase Database 연결
+        ref = Database.database().reference()
+        
+        if Auth.auth().currentUser != nil {
+            let user = Auth.auth().currentUser
+            uid = user?.uid
+            print("user exists : \(uid)")
+        } else{
+            print("user is nil")
+        }
+        parseEmotionResult()
+        checkDiaryUsage()
         setEmotionImage()
+    }
+    
+    // EmotionResult.json 파싱
+    func parseEmotionResult(){
+        let jsonDecoder = JSONDecoder()
+        
+        guard let emotionData: NSDataAsset = NSDataAsset(name: "emotion_result") else {
+            return
+        }
+        
+        do {
+            self.emotionResults = try jsonDecoder.decode(EmotionResult.self, from: emotionData.data)
+            print(emotionResults.emotions[0].response[1])
+        } catch {
+            print(String(describing: error))
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    // 데이터베이스 사용자 일기량 확인
+    func checkDiaryUsage(){
+        self.ref.child("diary").child(uid).getData{ (error, snapshot) in
+            if let error = error {
+                print("error getting data \(error)")
+            }else if snapshot.exists() {
+                self.diaryUsage = snapshot.childrenCount
+                print("got data \(self.diaryUsage)")
+            }else {
+                print("No data")
+            }
+        }
     }
     
     // 감정에 맞는 이미지 셋팅

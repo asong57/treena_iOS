@@ -18,6 +18,7 @@
 		9C9987B026EB695B008C16D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C9987AE26EB695B008C16D7 /* LaunchScreen.storyboard */; };
 		9C9987B826EB6B46008C16D7 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9987B726EB6B46008C16D7 /* Login.swift */; };
 		9CAC46B026EE23BA0074F3B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC46AF26EE23BA0074F3B2 /* GoogleService-Info.plist */; };
+		9CACEBD72702D90500BC26C4 /* EmotionResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CACEBD62702D90500BC26C4 /* EmotionResult.swift */; };
 		9CCC794A26EF3E0B006D0169 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC794926EF3E0B006D0169 /* Register.swift */; };
 		9CCC794C26EF435F006D0169 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC794B26EF435E006D0169 /* MyPage.swift */; };
 		9CCC794E26EF4367006D0169 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC794D26EF4367006D0169 /* Calendar.swift */; };
@@ -41,6 +42,7 @@
 		9C9987B126EB695B008C16D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C9987B726EB6B46008C16D7 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		9CAC46AF26EE23BA0074F3B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		9CACEBD62702D90500BC26C4 /* EmotionResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionResult.swift; sourceTree = "<group>"; };
 		9CCC794926EF3E0B006D0169 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		9CCC794B26EF435E006D0169 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		9CCC794D26EF4367006D0169 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
@@ -63,7 +65,6 @@
 		9C99879726EB6959008C16D7 = {
 			isa = PBXGroup;
 			children = (
-				9C7CD3C92701B36700D355BE /* APIResponse.swift */,
 				9C9987A226EB6959008C16D7 /* treena */,
 				9C9987A126EB6959008C16D7 /* Products */,
 				ED1F609C2C41DA1BB80DDB0A /* Pods */,
@@ -82,6 +83,8 @@
 		9C9987A226EB6959008C16D7 /* treena */ = {
 			isa = PBXGroup;
 			children = (
+				9CACEBD62702D90500BC26C4 /* EmotionResult.swift */,
+				9C7CD3C92701B36700D355BE /* APIResponse.swift */,
 				9C9987A326EB6959008C16D7 /* AppDelegate.swift */,
 				9C9987A526EB6959008C16D7 /* SceneDelegate.swift */,
 				9C9987A726EB6959008C16D7 /* ViewController.swift */,
@@ -237,6 +240,7 @@
 				9C7CD3C82701503D00D355BE /* EmotionImage.swift in Sources */,
 				9CCC795226EF43CB006D0169 /* Plus.swift in Sources */,
 				9C7BBA7F26F8515C005FC1BA /* CalendarDiary.swift in Sources */,
+				9CACEBD72702D90500BC26C4 /* EmotionResult.swift in Sources */,
 				9C9987A426EB6959008C16D7 /* AppDelegate.swift in Sources */,
 				9C7CD3CA2701B36700D355BE /* APIResponse.swift in Sources */,
 				9CCC794C26EF435F006D0169 /* MyPage.swift in Sources */,
