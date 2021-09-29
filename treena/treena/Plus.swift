@@ -132,6 +132,8 @@ class PlusViewController: UIViewController, UITextViewDelegate {
                         // 모델에서 얻어온 감정 다음 화면으로 전달
                         guard let nextVC = self.storyboard?.instantiateViewController(identifier: "ImageVC") as? EmotionImageViewController else {return}
                         nextVC.emotion = emotion
+                        self.navigationController?.navigationBar.tintColor = .black
+                        self.navigationController?.navigationBar.topItem?.title = ""
                         self.navigationController?.pushViewController(nextVC, animated: true)
                         
                     } catch(let err) {
