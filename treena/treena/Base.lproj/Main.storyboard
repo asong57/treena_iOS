@@ -324,6 +324,9 @@
                                 <rect key="frame" x="135" y="94" width="145" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="treena_logo"/>
+                                <connections>
+                                    <action selector="homeButtonClicked:" destination="PGU-mQ-AXh" eventType="touchUpInside" id="w2N-zK-iW6"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OzF-Q3-Xdw" customClass="FSCalendar">
                                 <rect key="frame" x="0.0" y="206" width="414" height="461"/>

@@ -47,4 +47,12 @@ extension CalendarViewController {
         
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+    
+    // 홈버튼 클릭이벤트
+    @IBAction func homeButtonClicked(_ sender: Any) {
+        guard let nextVC = self.storyboard?.instantiateViewController(identifier: "HomeVC") as? ViewController else {return}
+        self.navigationController?.navigationBar.tintColor = .black
+        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
