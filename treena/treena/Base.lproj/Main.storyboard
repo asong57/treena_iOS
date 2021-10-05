@@ -358,19 +358,21 @@
                                 <rect key="frame" x="0.0" y="104" width="414" height="758"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오예! 트리나도 즐겁게 나무를 보살피고 있어요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DoJ-B7-PVi">
-                                <rect key="frame" x="20" y="104" width="277" height="16"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="dd" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G6I-6j-5MT">
+                                <rect key="frame" x="20" y="104" width="323" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="THELetsR" family="THELetsR" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="THELetsR" family="THELetsR" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XSL-mc-ooT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="pKO-BU-zQe" id="BEo-Ez-YL5"/>
+                        <outlet property="mentTextView" destination="G6I-6j-5MT" id="ssy-02-IlR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moY-i9-M7A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
