@@ -70,13 +70,27 @@ class ViewController: UIViewController {
                                            "https://postfiles.pstatic.net/MjAyMTA3MjlfMjAx/MDAxNjI3NTY4NjE3NTkx.7n5dJb1vZXaZ2CMLMjAMRpnB0hfLs0aYYUDJzI3d_aEg.tbvVgbOKnaFw60NgmwBDWlPGh9efxFyMiXfnUsISM_Ig.JPEG.hahahafb/wood8.jpg?type=w966",
                                             "https://postfiles.pstatic.net/MjAyMTA3MjlfMjUg/MDAxNjI3NTY4NjE3Njk1.diWQ2q_gQza_Ll8twVi-eDMNQ-qj534u8HfeyYEbXhQg.vP9slLlDMUibCxJRTzvsn6mtBIXlKANOiiuxJ8mozp8g.JPEG.hahahafb/wood9.jpg?type=w966",
                                             ]
+        
         let url = URL(string: treeImageURLList[treeLevel])
+        
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url!){
+                        if let image = UIImage(data: data){
+                            DispatchQueue.main.async {
+                                self.imageView.image = image
+                                print(image)
+                            }
+                        }
+                    }
+                }
+        
+        /*
         do {
             let data = try Data(contentsOf: url!)
             imageView.image = UIImage(data: data)
         } catch {
             
-        }
+        }*/
     }
     
     // 데이터베이스 사용자 일기량 확인 및 setTreeLevel()
