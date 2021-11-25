@@ -332,6 +332,26 @@
                                 <rect key="frame" x="0.0" y="206" width="414" height="461"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleWeekendColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleDefaultColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleSelectionColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" red="0.024953747857580262" green="0.7693973183631897" blue="0.16757978448054706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="PGU-mQ-AXh" id="Ex6-AB-DeN"/>
                                     <outlet property="delegate" destination="PGU-mQ-AXh" id="wGk-uK-wul"/>
@@ -428,6 +448,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XD2-Aj-PNx">
+                                <rect key="frame" x="345" y="188" width="19" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="next"/>
+                                <connections>
+                                    <action selector="afterDiaryButtonClicked:" destination="26V-l8-eNP" eventType="touchUpInside" id="Giw-Bk-iW4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVt-wb-PBc">
+                                <rect key="frame" x="54" y="188" width="21" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="before"/>
+                                <connections>
+                                    <action selector="beforeDiaryButtonClicked:" destination="26V-l8-eNP" eventType="touchUpInside" id="2fB-Na-8DX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="N9G-Jy-2Ls"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -461,7 +497,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="before" width="47" height="53"/>
         <image name="calendar" width="227" height="207"/>
+        <image name="next" width="47" height="53"/>
         <image name="plus" width="227" height="207"/>
         <image name="profile" width="323" height="251"/>
         <image name="treena_logo" width="583" height="308"/>

@@ -18,6 +18,7 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
     var date: String!
     var ref: DatabaseReference!
     var uid: String!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,19 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
         } else{
             print("user is nil")
         }
+        setDate()
         
+        // placeholder 세팅
+        placeholderSetting()
+                
+        // textView 테두리 선 주기
+        self.diaryTextView.layer.borderWidth = 1.0
+        self.diaryTextView.layer.borderColor = UIColor.black.cgColor
+        
+        readDiary()
+    }
+    
+    func setDate(){
         // 날짜 세팅
         let endIdx: String.Index = date.index(date.startIndex, offsetBy: 3)
         let monthStartIdx: String.Index = date.index(date.startIndex, offsetBy: 4)
@@ -43,14 +56,9 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
         let day: String = String(date[dayStartIdx...])
         let nowDate = year+"년 "+month+"월 "+day+"일"
         thisDateLabel.text = nowDate
-        
-        // placeholder 세팅
-        placeholderSetting()
-                
-        // textView 테두리 선 주기
-        self.diaryTextView.layer.borderWidth = 1.0
-        self.diaryTextView.layer.borderColor = UIColor.black.cgColor
-        
+    }
+    
+    func readDiary(){
         // 데이터 읽어오기
         self.ref.child("diary").child(uid).child(date).getData{ (error, snapshot) in
             if let error = error {
@@ -60,6 +68,7 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
                 self.diaryTextView.text = snapshot.value as! String
                 print("got data \(snapshot.value!)")
             }else {
+                self.placeholderSetting()
                 print("No data")
             }
         }
@@ -100,5 +109,26 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
     @IBAction func temporaySaveButtonClicked(_ sender: Any) {
         self.ref.child("diary").child(uid).child(date).setValue(diaryTextView.text)
         print("save success")
+    }
+    
+    // 이전 일기 보기
+    @IBAction func beforeDiaryButtonClicked(_ sender: Any) {
+        let beforeDate: Int = Int(date)!-1
+        date = String(beforeDate)
+        setDate()
+        readDiary()
+    }
+    
+    // 다음 일기 보기
+    @IBAction func afterDiaryButtonClicked(_ sender: Any) {
+        let beforeDate: Int = Int(date)!+1
+        date = String(beforeDate)
+        setDate()
+        readDiary()
+    }
+    
+    // 달력 이동 예외 처리
+    func checkCalendarDateException(_ inputDate: String){
+        
     }
 }
