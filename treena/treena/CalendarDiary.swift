@@ -115,6 +115,7 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
     @IBAction func beforeDiaryButtonClicked(_ sender: Any) {
         let beforeDate: Int = Int(date)!-1
         date = String(beforeDate)
+        checkCalendarDateException(date)
         setDate()
         readDiary()
     }
@@ -123,12 +124,68 @@ class CalendarDiaryViewController: UIViewController, UITextViewDelegate{
     @IBAction func afterDiaryButtonClicked(_ sender: Any) {
         let beforeDate: Int = Int(date)!+1
         date = String(beforeDate)
+        checkCalendarDateException(date)
         setDate()
         readDiary()
     }
     
     // 달력 이동 예외 처리
     func checkCalendarDateException(_ inputDate: String){
+        let startDayIdx: String.Index = inputDate.index(inputDate.startIndex, offsetBy: 6)
+        var day: Int = Int(String(inputDate[startDayIdx...]))!
         
+        let startMonthIdx: String.Index = inputDate.index(inputDate.startIndex, offsetBy: 4)
+        let endMonthIdx: String.Index = inputDate.index(inputDate.startIndex, offsetBy: 5)
+        var month: Int = Int(String(inputDate[startMonthIdx...endMonthIdx]))!
+        
+        let endYearIdx: String.Index = inputDate.index(inputDate.startIndex, offsetBy: 3)
+        var year: Int = Int(String(inputDate[...endYearIdx]))!
+        
+        let monthDates = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        
+        if day >= 1 && day <= 30{
+            return
+        }
+        
+        if month == 2 && day > 28 {
+            month = 3
+            day = 1
+        }
+        
+        if day == 32 {
+            if month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12 {
+                month = month+1
+                day = 1
+            }
+        }
+        
+        if day == 31 {
+            if month == 4 || month == 6 || month == 9 || month == 11 {
+                month = month+1
+                day = 1
+                if month == 13 {
+                    month = 1
+                    year = year+1
+                }
+            }
+            
+        }
+        
+        
+        if day == 0 {
+            month = month-1
+            if month == 0 {
+                month = 12
+                year = year-1
+            }
+            day = monthDates[month-1]
+        }
+        
+        var monthString: String = String(month)
+        if month < 10 {
+            monthString = "0"+monthString
+        }
+        
+        date = String(year) + monthString + String(day)
     }
 }
