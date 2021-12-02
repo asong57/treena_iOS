@@ -14,25 +14,26 @@ class CalendarViewController: UIViewController, FSCalendarDelegate, FSCalendarDa
     var calendar = FSCalendar()
     var dates: [Date] = []
     
+    fileprivate let datesWithCat = ["20211201","20150605"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // set delegate & datasource
         calendar.delegate = self
         calendar.dataSource = self
-        
         view.addSubview(calendar)
+        
     }
     
-    // 달력 날짜 아래에 이미지 셋
-    // FSCalendarDataSource
-    func calendar(_ calendar: FSCalendar!, imageFor date: NSDate!) -> UIImage! {
-        var anyImage: UIImage! = UIImage(named: "leaf2")
+    
+    // 일기 쓴 날짜 배열 만들기
+    func getDiaryDates(){
         
         
-        return anyImage
     }
 }
+
 
 // 달력 클릭이벤트
 extension CalendarViewController {
@@ -54,5 +55,14 @@ extension CalendarViewController {
         self.navigationController?.navigationBar.tintColor = .black
         self.navigationController?.navigationBar.topItem?.title = ""
         self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    // 특정 날짜에 이미지 세팅
+    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+        let imageDateFormatter = DateFormatter()
+        imageDateFormatter.dateFormat = "yyyyMMdd"
+        var dateStr = imageDateFormatter.string(from: date)
+        print("date : \(dateStr)")
+        return datesWithCat.contains(dateStr) ? UIImage(named: "icon_cat") : nil
     }
 }
