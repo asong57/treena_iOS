@@ -24,6 +24,11 @@
 		9CCC794C26EF435F006D0169 /* MyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC794B26EF435E006D0169 /* MyPage.swift */; };
 		9CCC794E26EF4367006D0169 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC794D26EF4367006D0169 /* Calendar.swift */; };
 		9CCC795226EF43CB006D0169 /* Plus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC795126EF43CB006D0169 /* Plus.swift */; };
+		9CDD0100276F4E6D0035102A /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD00FF276F4E6D0035102A /* Observable.swift */; };
+		9CDD0102276F4EE70035102A /* ObservableVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD0101276F4EE70035102A /* ObservableVMProtocol.swift */; };
+		9CDD01062770AC5F0035102A /* UserDiaryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD01052770AC5F0035102A /* UserDiaryState.swift */; };
+		9CDD01082770AC8B0035102A /* ObservableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD01072770AC8B0035102A /* ObservableViewModel.swift */; };
+		9CDD010B2770AD7E0035102A /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDD010A2770AD7E0035102A /* FirebaseDatabase.swift */; };
 		DBA319E0A7BFBB6E2BC688C0 /* Pods_treena.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DCF93807984079DF8F1CFC8 /* Pods_treena.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +54,11 @@
 		9CCC794B26EF435E006D0169 /* MyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPage.swift; sourceTree = "<group>"; };
 		9CCC794D26EF4367006D0169 /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		9CCC795126EF43CB006D0169 /* Plus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plus.swift; sourceTree = "<group>"; };
+		9CDD00FF276F4E6D0035102A /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		9CDD0101276F4EE70035102A /* ObservableVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableVMProtocol.swift; sourceTree = "<group>"; };
+		9CDD01052770AC5F0035102A /* UserDiaryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiaryState.swift; sourceTree = "<group>"; };
+		9CDD01072770AC8B0035102A /* ObservableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableViewModel.swift; sourceTree = "<group>"; };
+		9CDD010A2770AD7E0035102A /* FirebaseDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
 		AC657069338B55FC20924757 /* Pods-treena.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-treena.debug.xcconfig"; path = "Target Support Files/Pods-treena/Pods-treena.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +97,10 @@
 		9C9987A226EB6959008C16D7 /* treena */ = {
 			isa = PBXGroup;
 			children = (
+				9CDD01092770AD700035102A /* Services */,
+				9CDD0104276F52570035102A /* ViewModel */,
+				9CDD0103276F51570035102A /* Model */,
+				9CDD00FE276F4E4D0035102A /* Observable */,
 				9CACEBD62702D90500BC26C4 /* EmotionResult.swift */,
 				9C7CD3C92701B36700D355BE /* APIResponse.swift */,
 				9C9987A326EB6959008C16D7 /* AppDelegate.swift */,
@@ -113,6 +127,39 @@
 			children = (
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		9CDD00FE276F4E4D0035102A /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				9CDD00FF276F4E6D0035102A /* Observable.swift */,
+				9CDD0101276F4EE70035102A /* ObservableVMProtocol.swift */,
+			);
+			path = Observable;
+			sourceTree = "<group>";
+		};
+		9CDD0103276F51570035102A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CDD01052770AC5F0035102A /* UserDiaryState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9CDD0104276F52570035102A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9CDD01072770AC8B0035102A /* ObservableViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9CDD01092770AD700035102A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9CDD010A2770AD7E0035102A /* FirebaseDatabase.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C7D9B8C26B01E41ED61C6F25 /* Frameworks */ = {
@@ -248,12 +295,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CDD010B2770AD7E0035102A /* FirebaseDatabase.swift in Sources */,
+				9CDD0100276F4E6D0035102A /* Observable.swift in Sources */,
 				9C9987A826EB6959008C16D7 /* ViewController.swift in Sources */,
 				9C7CD3C82701503D00D355BE /* EmotionImage.swift in Sources */,
 				9CCC795226EF43CB006D0169 /* Plus.swift in Sources */,
 				9C7BBA7F26F8515C005FC1BA /* CalendarDiary.swift in Sources */,
+				9CDD01082770AC8B0035102A /* ObservableViewModel.swift in Sources */,
+				9CDD01062770AC5F0035102A /* UserDiaryState.swift in Sources */,
 				9CACEBD72702D90500BC26C4 /* EmotionResult.swift in Sources */,
 				9C9987A426EB6959008C16D7 /* AppDelegate.swift in Sources */,
+				9CDD0102276F4EE70035102A /* ObservableVMProtocol.swift in Sources */,
 				9C7CD3CA2701B36700D355BE /* APIResponse.swift in Sources */,
 				9CCC794C26EF435F006D0169 /* MyPage.swift in Sources */,
 				9C9987A626EB6959008C16D7 /* SceneDelegate.swift in Sources */,
